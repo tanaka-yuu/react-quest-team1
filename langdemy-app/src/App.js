@@ -4,7 +4,7 @@ import LessonReady from "./components/LessonReady";
 import Login from "./components/Login";
 import Schedule from "./components/Schedule";
 import Register from "./components/Register";
-import SignIn1 from "./components/signin-page/SignIn1";
+import SignIn from "./components/signin-page/SignIn";
 
 export default function App() {
   return (
@@ -40,7 +40,8 @@ export default function App() {
             <Register />
           </Route>
           <Route path="/">
-            <LessonReady />
+            {/* <LessonReady /> */}
+            <SignIn />
           </Route>
         </Switch>
       </div>
