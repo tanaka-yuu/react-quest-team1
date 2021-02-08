@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mainbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 64px;
+}
+
+.icon {
+  background-color: #dc004e !important;
+  margin: 8px;
+}
+
+.loginbox {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
+.form {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.submit {
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+}
