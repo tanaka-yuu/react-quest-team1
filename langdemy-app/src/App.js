@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LessonReady from "./components/LessonReady";
 import Login from "./components/Login";
 import Schedule from "./components/Schedule";
 import Register from "./components/Register";
+import SignIn from "./components/signin-page/SignIn";
 
 export default function App() {
   return (
@@ -51,4 +47,3 @@ export default function App() {
     </Router>
   );
 }
-
