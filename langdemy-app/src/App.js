@@ -40,8 +40,7 @@ export default function App() {
             <Register />
           </Route>
           <Route path="/">
-            {/* <LessonReady /> */}
-            <SignIn />
+            <LessonReady />
           </Route>
         </Switch>
       </div>
