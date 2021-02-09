@@ -13,10 +13,10 @@
 ## ディレクトリ構成について
 
 基本的な知識
-* `langdemy-app`フォルダは````````create-react-app`で生成したフォルダです。
+* `langdemy-app`フォルダは`create-react-app`で生成したフォルダです。
 * 編集するファイルはほとんど、`srcフォルダ`の中にあります。
 * 画面を表示している部分に当たるのが、`./langdemy-app/src/App.js`です。
-``
+
 ```
 ※以降は、langdemy-app/srcフォルダの中の話を前提に話を勧めていきます。
 ```
