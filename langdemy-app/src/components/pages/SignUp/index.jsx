@@ -1,15 +1,17 @@
 import React from "react";
 
-class Login extends React.Component {
+class SignUp extends React.Component {
   render() {
     console.log(this.props);
 
     return (
       <div>
-        <h1>Login</h1>
+        <h1>SignUp
+        
+        </h1>
       </div>
     );
   }
 }
 
-export default Login;
+export default SignUp;
