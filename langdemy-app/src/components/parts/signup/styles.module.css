@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  background-color: #dc004e !important;
+  margin: 8px;
+}
+
+.submit {
+  margin-top: 24px !important;
+  margin-bottom: 16px !important;
+}
