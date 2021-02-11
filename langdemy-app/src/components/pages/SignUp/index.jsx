@@ -10,34 +10,36 @@ import SignUpEmailAdress from "../../parts/signup/SignUpEmailAdress";
 import SignUpPassword from "../../parts/signup/SignUpPassword";
 import SignUpButton from "../../parts/signup/SignUpButton";
 
-const SignUp = () => {
-  return (
-    <div>
-      <Container component="main" maxWidth="sm">
-        <div className={styles.mainbox}>
-          <SignUpAvatar />
-          <SignUpTypography />
-          <form className={styles.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <SignUpFirstName />
+class SignUp extends React.Component {
+  render() {
+    return (
+      <div>
+        <Container component="main" maxWidth="sm">
+          <div className={styles.mainbox}>
+            <SignUpAvatar />
+            <SignUpTypography />
+            <form className={styles.form} noValidate>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <SignUpFirstName />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <SignUpSecondName />
+                </Grid>
+                <Grid item xs={12}>
+                  <SignUpEmailAdress />
+                </Grid>
+                <Grid item xs={12}>
+                  <SignUpPassword />
+                </Grid>
+                <SignUpButton />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <SignUpSecondName />
-              </Grid>
-              <Grid item xs={12}>
-                <SignUpEmailAdress />
-              </Grid>
-              <Grid item xs={12}>
-                <SignUpPassword />
-              </Grid>
-              <SignUpButton />
-            </Grid>
-          </form>
-        </div>
-      </Container>
-    </div>
-  );
-};
+            </form>
+          </div>
+        </Container>
+      </div>
+    );
+  }
+}
 
 export default SignUp;
