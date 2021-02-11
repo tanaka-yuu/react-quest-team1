@@ -12,6 +12,7 @@ class LessonReady extends React.Component {
     return (
       <div>
         <h1>LessonReady</h1>
+        {this.props.html}
       </div>
     );
   }
