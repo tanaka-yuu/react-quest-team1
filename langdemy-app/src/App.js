@@ -39,7 +39,8 @@ export default function App() {
             <SignUp />
           </Route>
           <Route path="/">
-            <LessonReady />
+            {/* <LessonReady /> */}
+            <SignIn />
           </Route>
         </Switch>
       </div>
