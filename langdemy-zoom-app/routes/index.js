@@ -18,7 +18,7 @@ router.get("/", function (req, res, next) {
     // Request an access token using the auth code
 
     request
-      .post(ZOOM.POST_URL, (error, response, body) => {
+      .post(ZOOM.To_POST_URL(req), (error, response, body) => {
         // Parse response to JSON
         const postBodyParam = JSON.parse(body);
 
