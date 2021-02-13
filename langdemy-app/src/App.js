@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import LessonReady from "./components/pages/LessonReady";
+import LessonReady from "./components/pages/LessonReady/containers";
 import Schedule from "./components/pages/Schedule";
 import SignUp from "./components/pages/SignUp";
 import SignIn from "./components/pages/SignIn";
