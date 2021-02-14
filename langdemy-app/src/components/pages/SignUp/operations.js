@@ -1,4 +1,5 @@
 import { auth, db, FirebaseTimestamp } from "../../../firebase/index";
+import { signUpAction } from "./actions";
 import { push } from "connected-react-router";
 
 export const signUpFunc = (firstName, lastName, emailAddress, password) => {
@@ -35,19 +36,19 @@ export const signUpFunc = (firstName, lastName, emailAddress, password) => {
         const user = result.user;
 
         if (user) {
-          const userID = user.userID;
+          const uid = user.uid;
           const timestamp = FirebaseTimestamp.now();
 
           const userInitialData = {
             created_at: timestamp,
             email: emailAddress,
             role: "customer",
-            userID: userID,
+            uid: uid,
             updated_at: timestamp,
             userName: firstName + lastName
           }
 
-          db.collection("users").doc(userID).set(userInitialData)
+          db.collection("users").doc(uid).set(userInitialData)
           .then(() => {
             dispatch(push("/"))
           })

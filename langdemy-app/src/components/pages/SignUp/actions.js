@@ -1,11 +1,6 @@
-// reduxの関数の宣言
-export const ONCHANGE_FIRSTNAME = "ONCHANGE_FIRSTNAME";
-export const ONCHANGE_LASTNAME = "ONCHANGE_LASTNAME";
-export const ONCHANGE_EMAIL_ADDRESS = "ONCHANGE_EMAIL_ADDRESS";
-export const ONCHANGE_PASSWORD = "ONCHANGE_PASSWORD";
 
-// stateを渡すactionの処理
-export const updateFirstName = (userState) => {
+export const ONCHANGE_FIRSTNAME = "ONCHANGE_FIRSTNAME";
+export const setFirstName = (userState) => {
   return {
     type: "ONCHANGE_FIRSTNAME",
     payload: {
@@ -14,7 +9,8 @@ export const updateFirstName = (userState) => {
   };
 };
 
-export const updateLastName = (userState) => {
+export const ONCHANGE_LASTNAME = "ONCHANGE_LASTNAME";
+export const setLastName = (userState) => {
   return {
     type: "ONCHANGE_LASTNAME",
     payload: {
@@ -23,7 +19,8 @@ export const updateLastName = (userState) => {
   };
 };
 
-export const updateEmailAddress = (userState) => {
+export const ONCHANGE_EMAIL_ADDRESS = "ONCHANGE_EMAIL_ADDRESS";
+export const setEmailAddress = (userState) => {
   return {
     type: "ONCHANGE_EMAIL_ADDRESS",
     payload: {
@@ -32,7 +29,8 @@ export const updateEmailAddress = (userState) => {
   };
 };
 
-export const updatePassword = (userState) => {
+export const ONCHANGE_PASSWORD = "ONCHANGE_PASSWORD";
+export const setPassword = (userState) => {
   return {
     type: "ONCHANGE_PASSWORD",
     payload: {
@@ -40,3 +38,13 @@ export const updatePassword = (userState) => {
     },
   };
 };
+
+export const SIGN_UP = "SIGN_UP";
+export const signUpAction = (userState) => {
+  return {
+    type: "SIGN_UP",
+    payload: {
+      ...userState,
+    }
+  }
+}

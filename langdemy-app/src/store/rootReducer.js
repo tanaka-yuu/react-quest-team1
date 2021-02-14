@@ -1,5 +1,5 @@
-import signUp from  "../components/pages/SignUp/reducers";
+import { signUpReducer } from  "../components/pages/SignUp/reducers";
 
 export default {
-  signUp,
+  signUpReducer,
 }

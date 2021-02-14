@@ -1,16 +1,9 @@
 // 会員登録の情報を保持するモデルの宣言
 // actionをインポート
 import * as Actions from "./actions";
+import initialState from "../../../store/initialState";
 
-// stateの初期値を設定
-const initialState = {
-  firstName: "",
-  lastName: "",
-  emailAddress: "",
-  password: "",
-};
-
-export default function reducer(state = initialState, action) {
+export const signUpReducer = (state = initialState.users, action) => {
   switch (action.type) {
     case Actions.ONCHANGE_FIRSTNAME:
     case Actions.ONCHANGE_LASTNAME:
@@ -20,6 +13,10 @@ export default function reducer(state = initialState, action) {
         ...state,
         ...action.payload,
       };
+    case Actions.SIGN_UP:
+      return {
+        ...action.payload,
+      }
     default:
       return state;
   }

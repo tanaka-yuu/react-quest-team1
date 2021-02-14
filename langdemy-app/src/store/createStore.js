@@ -5,12 +5,13 @@ import {
   combineReducers,
 } from "redux";
 import logger from "redux-logger"; // モデルのデータを変更する際にその内容をconsoleに表示してくれるパッケージ
-import createSagaMiddleware from "redux-saga"; // reduxの変遷を担当
 import {connectRouter, routerMiddleware} from "connected-react-router"; // reduxのStoreで管理するReact-Routerの導入
+import thunk from "redux-thunk";
 import rootReducer from "./rootReducer";
-import rootSaga from "./rootSaga";
+// import rootSaga from "./rootSaga";
+// import createSagaMiddleware from "redux-saga"; // reduxの変遷を担当
+// const sagaMiddleware = createSagaMiddleware();
 
-const sagaMiddleware = createSagaMiddleware();
 export default function createStore(history) {
   const store = reduxCreateStore(
     combineReducers({
@@ -18,7 +19,11 @@ export default function createStore(history) {
       ...rootReducer
     }),
     // applyMiddleware(logger, sagaMiddleware, routerMiddleware(history))
-    applyMiddleware(logger, routerMiddleware(history))
+    applyMiddleware(
+      logger,
+      routerMiddleware(history),
+      thunk
+    )
   );
   // sagaMiddleware.run(rootSaga);
   return store;

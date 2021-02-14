@@ -98,7 +98,7 @@ const SignUp = () => {
                 />
               </Grid>
               <PrimaryButton
-                type={"submit"}
+                // type={"submit"}
                 fullWidth={true}
                 label={"Sign up!"}
                 onClick={() => dispatch(signUpFunc(firstName, lastName, emailAddress, password))}

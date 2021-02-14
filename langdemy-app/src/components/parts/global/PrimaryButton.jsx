@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 const PrimaryButton = (props) => {
   return (
     <Button
-      type={props.type}
+      // type={props.type}
       fullWidth={props.fullWidth}
       variant="contained"
       color="primary"
