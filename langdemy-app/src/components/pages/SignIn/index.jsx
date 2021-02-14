@@ -6,7 +6,7 @@ import Avatar from "@material-ui/core/Avatar";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class SignIn extends React.Component {
                 Sign In
               </Button>
             </form>
-            <Link href="#" variant="body2">
+            <Link variant="body2" to="/signup">
               新規登録はこちらから
             </Link>
           </div>
