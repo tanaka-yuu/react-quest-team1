@@ -1,3 +1,4 @@
+
 // npm run startして最初に呼び出される基盤のファイル
 import React from "react";
 import ReactDOM from "react-dom";
@@ -14,10 +15,10 @@ const store = createStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
