@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import TextInput from "../../parts/global/TextInput";
 import PrimaryButton from "../../parts/global/PrimaryButton";
-import { signInFunc } from "./operetions";
+import { signInFunc } from "../../../reducks/users/operations";
 
 const SignIn = () => {
   const dispatch = useDispatch();

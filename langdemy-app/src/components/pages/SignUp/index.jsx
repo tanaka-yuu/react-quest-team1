@@ -6,7 +6,7 @@ import SignUpAvatar from "../../parts/signup/SignUpAvatar";
 import SignUpTypography from "../../parts/signup/SignUpTypography";
 import PrimaryButton from "../../parts/global/PrimaryButton";
 import TextInput from "../../parts/global/TextInput";
-import { signUpFunc } from "./operations";
+import { signUpFunc } from "../../../reducks/users/operations";
 import { useDispatch } from "react-redux";
 
 const SignUp = () => {

@@ -5,7 +5,7 @@ import "./index.css";
 import App from "./App.jsx";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux"; // reduxを使う宣言
-import createStore from "./store/createStore";
+import createStore from "./reducks/store/createStore";
 import { ConnectedRouter } from "connected-react-router";
 import * as History from "history"; // ルーティングにおいてどこのURLに居たかなどの履歴を残してくれるパッケージ
 
