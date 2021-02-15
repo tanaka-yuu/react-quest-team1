@@ -40,15 +40,11 @@ srcフォルダ
 │ ├ pagesフォルダ (ページ単位でフォルダを作る (React-Routerにいれる画面))
 │ │ ├ SignInフォルダ  (機能ごとにこの形式のフォルダを作成)
 │ │ │ ├ index.jsx         （View部分）
-│ │ │ ├ styles.module.css （レイアウトを指定）
-│ │ │ ├ actions.js        （Actionを定義）
-│ │ │ ├ reducer.js        （Reducerを定義）
-│ │ │ ├ operations.js     （Reduxの非同期処理）
-│ │ │ └ selectors.js      （Storeの値を参照）
+│ │ │ └ styles.module.css （レイアウトを指定）
 │ │ │
 │ │ ├ SignUpフォルダ  (SignInフォルダと同様の形式)
 │ │ │ ├ index.jsx         （View部分）
-│ │ │ // 以下省略
+│ │ │ └ styles.module.css （レイアウトを指定）
 │ │
 │ ├ partsフォルダ (各部品単位でフォルダを作る (ボタンやテキストボックスなど))
 │ │ ├ SignInButtonフォルダ  (SignInフォルダと同様の形式)
@@ -56,10 +52,19 @@ srcフォルダ
 │ │ │ // 以下省略
 │ │ 
 │
-├ storeフォルダ
-│ ├ createStore.js  
-│ ├ rootSaga.js
-│ └ rootReducer.js
+│ 
+├ reducksフォルダ
+│ ├ storeフォルダ
+│ │ ├ createStore.js  
+│ │ ├ rootSaga.js
+│ │ └ rootReducer.js
+│ │ 
+│ │ 
+│ ├ usersフォルダ
+│ │ ├ actions.js        （Actionを定義）
+│ │ ├ reducer.js        （Reducerを定義）
+│ │ ├ operations.js     （Reduxの非同期処理）
+│ │ └ selectors.js      （Storeの値を参照）
 │
 ├ App.js
 ├ index.js
