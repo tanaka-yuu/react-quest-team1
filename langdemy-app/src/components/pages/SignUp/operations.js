@@ -2,20 +2,15 @@ import { auth, db, FirebaseTimestamp } from "../../../firebase/index";
 import { signUpAction } from "./actions";
 import { push } from "connected-react-router";
 
-export const signUpFunc = (firstName, lastName, emailAddress, password) => {
+export const signUpFunc = (userName, email, password) => {
   return async (dispatch) => {
     // Validation
-    if (firstName === "") {
-      alert("First Nameを入力してください。");
+    if (userName === "") {
+      alert("ユーザーネームを入力してください。");
       return false;
     }
 
-    if (lastName === "") {
-      alert("Last Nameを入力してください。");
-      return false;
-    }
-
-    if (emailAddress === "") {
+    if (email === "") {
       alert("メールアドレスを入力してください。");
       return false;
     }
@@ -31,7 +26,7 @@ export const signUpFunc = (firstName, lastName, emailAddress, password) => {
     }
 
     return auth
-      .createUserWithEmailAndPassword(emailAddress, password)
+      .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         const user = result.user;
 
@@ -41,17 +36,27 @@ export const signUpFunc = (firstName, lastName, emailAddress, password) => {
 
           const userInitialData = {
             created_at: timestamp,
-            email: emailAddress,
+            email: email,
             role: "customer",
             uid: uid,
             updated_at: timestamp,
-            userName: firstName + lastName
-          }
+            userName: userName,
+          };
 
-          db.collection("users").doc(uid).set(userInitialData)
-          .then(() => {
-            dispatch(push("/"))
-          })
+          db.collection("users")
+            .doc(uid)
+            .set(userInitialData)
+            .then(() => {
+              dispatch(signUpAction({
+                userName: userName,
+                email: email,
+                password: password,
+                uid: uid,
+                role: "customer",
+                isSignedIn: true,
+              }));
+              dispatch(push("/"));
+            });
         }
       });
   };

@@ -12,30 +12,22 @@ import { useDispatch } from "react-redux";
 const SignUp = () => {
   const dispatch = useDispatch();
 
-  const [firstName, setFirstName] = useState(""),
-    [lastName, setLastName] = useState(""),
-    [emailAddress, setEmailAddress] = useState(""),
+  const [userName, setUserName] = useState(""),
+    [email, setEmail] = useState(""),
     [password, setPassword] = useState("");
 
-  const inputFirstName = useCallback(
+  const inputUserName = useCallback(
     (event) => {
-      setFirstName(event.target.value);
+      setUserName(event.target.value);
     },
-    [setFirstName]
+    [setUserName]
   );
 
-  const inputLastName = useCallback(
+  const inputEmail = useCallback(
     (event) => {
-      setLastName(event.target.value);
+      setEmail(event.target.value);
     },
-    [setLastName]
-  );
-
-  const inputEmailAddress = useCallback(
-    (event) => {
-      setEmailAddress(event.target.value);
-    },
-    [setEmailAddress]
+    [setEmail]
   );
 
   const inputPassword = useCallback(
@@ -55,34 +47,23 @@ const SignUp = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextInput
-                  name={"firstName"}
-                  id={"firstName"}
-                  label={"First Name"}
+                  name={"userName"}
+                  id={"userName"}
+                  label={"ユーザーネーム"}
                   type={"text"}
-                  value={firstName}
-                  onChange={inputFirstName}
+                  value={userName}
+                  onChange={inputUserName}
                   autoFocus={true}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextInput
-                  name={"lastName"}
-                  id={"lastName"}
-                  label={"Last Name"}
-                  type={"text"}
-                  value={lastName}
-                  onChange={inputLastName}
-                  autoFocus={false}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextInput
                   name={"email"}
                   id={"email"}
-                  label={"Email Address"}
+                  label={"メールアドレス"}
                   type={"email"}
-                  value={emailAddress}
-                  onChange={inputEmailAddress}
+                  value={email}
+                  onChange={inputEmail}
                   autoFocus={false}
                 />
               </Grid>
@@ -90,7 +71,7 @@ const SignUp = () => {
                 <TextInput
                   name={"password"}
                   id={"password"}
-                  label={"Password"}
+                  label={"パスワード"}
                   type={"password"}
                   value={password}
                   onChange={inputPassword}
@@ -100,8 +81,8 @@ const SignUp = () => {
               <PrimaryButton
                 // type={"submit"}
                 fullWidth={true}
-                label={"Sign up!"}
-                onClick={() => dispatch(signUpFunc(firstName, lastName, emailAddress, password))}
+                label={"会員登録する"}
+                onClick={() => dispatch(signUpFunc(userName, email, password))}
               />
             </Grid>
           </form>

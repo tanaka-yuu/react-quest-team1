@@ -15,9 +15,9 @@ function mapStateToProps(state) {
 // propsによってReduxの関数を発火できるようにする関数
 function mapDispatchToProps(dispatch) {
   // return {
-  //   onchangeFirstName: () => dispatch(Actions.updateFirstName),
+  //   onchangeUserName: () => dispatch(Actions.updateUserName),
   //   onchangeLastName: () => dispatch(Actions.updateLastName),
-  //   onchangeEmailAddress: () => dispatch(Actions.updateEmailAddress),
+  //   onchangeemail: () => dispatch(Actions.updateemail),
   //   onchangePassword: () => dispatch(Actions.updatePassword),
   // 使い方
   // Viewのボタンで発火させる変数名: () => dispatch(Reduxの関数を発火させる関数)

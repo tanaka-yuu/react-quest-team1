@@ -1,13 +1,12 @@
 const initialState = {
   users: {
     isSignedIn: false,
-    userID: "",
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
-    password: ""
-  }
-}
+    uid: "",
+    role: "",
+    userName: "",
+    email: "",
+    password: "",
+  },
+};
 
 export default initialState;
-
