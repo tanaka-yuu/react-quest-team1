@@ -19,4 +19,8 @@ module.exports = {
   To_POST_URL,
   USER_URL,
   REDIRECT_URL,
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 4d0c87575a182855568bee4a5d2e63e2c158aa58
