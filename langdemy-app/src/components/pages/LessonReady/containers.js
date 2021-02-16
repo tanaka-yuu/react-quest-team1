@@ -4,7 +4,7 @@ import { getExpressRequest } from './actions';
 
 function mapStateToProps(state) {
     return{
-        
+        html: state.express.html
     }
 }
 
