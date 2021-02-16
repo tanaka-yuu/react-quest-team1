@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
-import { getExpressRequest } from './actions';
+import { getExpress } from './action';
 
 function callAPI(){
     return axios({
@@ -15,7 +15,7 @@ function callAPI(){
 function* getData() {
     const response = yield call(callAPI);
     yield put ({
-        type: 'GET_EXPRESS_SUCCESS',
+        type: 'GET_EXPRESS_REQUEST',
         payload: response,
     })
 }
