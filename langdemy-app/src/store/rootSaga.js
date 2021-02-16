@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects';
-import reducer from '../components/pages/LessonReady/controllers';
+import controller from '../components/pages/LessonReady/controller';
 
 export default function* routeSaga() {
    yield all([
-      reducer(),
+      controller(),
    ]);
 }
