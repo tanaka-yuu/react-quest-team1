@@ -1,0 +1,20 @@
+.userJudgeBoxIn {
+  visibility: visible;
+}
+
+.userJudgeBoxOut {
+  display: none;
+}
+
+.wrapperBox {
+  width: 100%;
+  position: relative;
+}
+
+.mainBox {
+  padding-top: calc(180px - 60 * (100vw - 600px) / 840);
+}
+
+.mainBoxUnder600 {
+  padding-top: 50px;
+}
