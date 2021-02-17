@@ -8,6 +8,7 @@ const resp = res;
 const startTime = req.params.startTime;
 const duration = req.params.duration;
 
+console.log(startTime);
 var options = {
   method: 'POST',
   uri: `https://api.zoom.us/v2/users/volcite.yuki.takano@gmail.com/meetings`,

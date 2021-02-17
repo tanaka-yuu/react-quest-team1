@@ -18,7 +18,6 @@ export default function createStore(history) {
       router: connectRouter(history),
       ...rootReducer
     }),
-    // applyMiddleware(logger, sagaMiddleware, routerMiddleware(history))
     applyMiddleware(
       logger,
       routerMiddleware(history),
