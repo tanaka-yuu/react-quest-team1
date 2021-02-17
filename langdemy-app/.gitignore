@@ -24,3 +24,9 @@ yarn-error.log*
 
 # Optional eslint cache
 .eslintcache
+<<<<<<< Updated upstream
+=======
+
+langdemy-app/.eslintcache
+
+>>>>>>> Stashed changes
