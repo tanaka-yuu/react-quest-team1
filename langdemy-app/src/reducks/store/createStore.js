@@ -8,9 +8,9 @@ import logger from "redux-logger"; // モデルのデータを変更する際に
 import {connectRouter, routerMiddleware} from "connected-react-router"; // reduxのStoreで管理するReact-Routerの導入
 import thunk from "redux-thunk";
 import rootReducer from "./rootReducer";
-// import rootSaga from "./rootSaga";
-// import createSagaMiddleware from "redux-saga"; // reduxの変遷を担当
-// const sagaMiddleware = createSagaMiddleware();
+import rootSaga from "./rootSaga";
+import createSagaMiddleware from "redux-saga"; // reduxの変遷を担当
+const sagaMiddleware = createSagaMiddleware();
 
 export default function createStore(history) {
   const store = reduxCreateStore(
@@ -22,9 +22,10 @@ export default function createStore(history) {
     applyMiddleware(
       logger,
       routerMiddleware(history),
+      sagaMiddleware,
       thunk
     )
   );
-  // sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
   return store;
 }

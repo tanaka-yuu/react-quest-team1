@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import LessonReady from "./components/pages/LessonReady/containers";
+import LessonReady from "./reducks/lessonReady/container";
 import Schedule from "./components/pages/Schedule";
 import SignUp from "./components/pages/SignUp";
 import SignIn from "./components/pages/SignIn";

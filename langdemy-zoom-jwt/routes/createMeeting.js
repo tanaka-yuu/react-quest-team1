@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 const rp = require('request-promise');
 
-router.get('/:startTime', function(req, res, next) {
+router.get('/:startTime/:duration', function(req, res, next) {
 //Make Zoom API call
 const resp = res;
-const startTime = req.startTime;
+const startTime = req.params.startTime;
+const duration = req.params.duration;
 
 var options = {
   method: 'POST',
@@ -14,7 +15,7 @@ var options = {
         "topic":"",
         "type": 2,
         "start_time": `${startTime}`,
-        "duration": 10,
+        "duration": `${duration}`,
         "timezone": "Asia/Tokyo",
         "password": "",
         "agenda": "",

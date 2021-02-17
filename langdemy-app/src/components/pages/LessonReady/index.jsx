@@ -3,7 +3,7 @@ import React from "react";
 class LessonReady extends React.Component {
 
   componentWillMount() {
-    this.props.getExpressFunc();
+    this.props.get();
 }
 
   render() {
