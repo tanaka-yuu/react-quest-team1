@@ -1,9 +1,21 @@
+.wrapperBox {
+  height: 10vh;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  display: flex;
+}
+
 .body {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 600px;
   padding: 16px 32px 24px;
   background-color: #fff;
+}
+
+.button {
+  margin-left: 10px !important;
 }

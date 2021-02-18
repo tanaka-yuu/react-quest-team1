@@ -6,50 +6,78 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import moment from "moment";
 
 class Body extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       classTime: 40,
+      name: "",
+      defaultValue: moment().format("YYYY-MM-DDTHH:mm"),
+      startTime: null,
     };
+
     this.classTimeHandleChange = this.classTimeHandleChange.bind(this);
+    this.datepickerHandleChange = this.datepickerHandleChange.bind(this);
+    this.nameHandleChange = this.nameHandleChange.bind(this);
+  }
+
+  classTimeHandleChange(e) {
+    this.setState(() => ({
+      classTime: e.target.value,
+    }));
+    console.log(e.target.value);
+  }
+
+  nameHandleChange(e) {
+    this.setState(() => ({
+      name: e.target.value,
+    }));
+    console.log(this.state.name);
+  }
+
+  datepickerHandleChange(e) {
+    this.setState(() => ({
+      startTime: e.target.value,
+    }));
+    console.log(this.state);
   }
 
   render() {
+    const value = [40, 60, 80, 100, 120, 140];
     return (
-      <div className={styles.body}>
+      <div className={styles.body} tabIndex={0}>
         <h2>予約する</h2>
+        <p>{this.state.startTime}</p>
         <div style={{ display: "flex" }}>
           <form noValidate>
             <TextField
-              id="datetime-local"
-              label="Next appointment"
+              label="日にち"
               type="datetime-local"
-              defaultValue="2017-05-24T10:30"
-              InputLabelProps={{
-                shrink: true,
-              }}
+              defaultValue={this.state.defaultValue}
               style={{ width: "200px", marginRight: "10px" }}
+              onChange={this.datepickerHandleChange}
             />
           </form>
           <FormControl style={{ width: "100px" }}>
             <InputLabel>授業時間</InputLabel>
-            <Select value={this.state.classTime}>
-              <MenuItem value={40} onClick={this.classTimeHandleChange}>
-                40分
-              </MenuItem>
-              <MenuItem value={60} onClick={this.classTimeHandleChange}>
-                60分
-              </MenuItem>
-              <MenuItem value={80} onClick={this.classTimeHandleChange}>
-                80分
-              </MenuItem>
-              <MenuItem value={100}>100分</MenuItem>
-              <MenuItem value={120}>120分</MenuItem>
-              <MenuItem value={140}>140分</MenuItem>
+            <Select
+              value={this.state.classTime}
+              onChange={this.classTimeHandleChange}
+            >
+              {value.map((value) => (
+                <MenuItem value={value} key={value}>
+                  {value}分
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
+          <TextField
+            label="名前"
+            style={{ marginLeft: "10px" }}
+            onChange={this.nameHandleChange}
+          />
           <Button variant="outlined" style={{ marginLeft: "10px" }}>
             決定
           </Button>
