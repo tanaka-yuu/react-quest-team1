@@ -8,6 +8,12 @@ const initialState = {
     password: "",
   },
   html: "",
+  schedule: {
+    classTime: null,
+    name: "",
+    startTime: null,
+    endTime: null,
+  },
 };
 
 export default initialState;

@@ -1,5 +1,5 @@
 import React from "react";
-import Calender from "../../parts/schedule/calender";
+import { Calender1 } from "../../parts/schedule/Calender1";
 
 class Schedule extends React.Component {
   render() {
@@ -7,7 +7,7 @@ class Schedule extends React.Component {
 
     return (
       <div>
-        <Calender />
+        <Calender1 />
       </div>
     );
   }

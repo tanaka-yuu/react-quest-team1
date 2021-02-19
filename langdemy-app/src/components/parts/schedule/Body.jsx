@@ -7,6 +7,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import moment from "moment";
+import { appointmentAction } from "../../../reducks/schedule/schedule.module";
+import { connect } from "react-redux";
 
 class Body extends React.Component {
   constructor(props) {
@@ -14,13 +16,14 @@ class Body extends React.Component {
     this.state = {
       classTime: 40,
       name: "",
-      defaultValue: moment().format("YYYY-MM-DDTHH:mm"),
-      startTime: null,
+      startTime: moment().format("YYYY-MM-DDTHH:mm"),
+      endTime: null,
     };
 
     this.classTimeHandleChange = this.classTimeHandleChange.bind(this);
     this.datepickerHandleChange = this.datepickerHandleChange.bind(this);
     this.nameHandleChange = this.nameHandleChange.bind(this);
+    this.clickDoAction = this.clickDoAction.bind(this);
   }
 
   classTimeHandleChange(e) {
@@ -35,13 +38,29 @@ class Body extends React.Component {
       name: e.target.value,
     }));
     console.log(this.state.name);
+    this.props.appointmentAction();
   }
 
   datepickerHandleChange(e) {
     this.setState(() => ({
       startTime: e.target.value,
     }));
-    console.log(this.state);
+  }
+
+  clickDoAction() {
+    const { appointmentAction } = this.props;
+    const appointment = this.state;
+    this.setState(() => ({
+      endTime: moment(this.state.startTime)
+        .add(this.state.classTime, "m")
+        .format("YYYY-MM-DD-HH:mm"),
+    }));
+    appointmentAction(appointment);
+    console.log(this.props.state);
+  }
+
+  componentWillMount() {
+    this.props.appointmentAction();
   }
 
   render() {
@@ -49,13 +68,13 @@ class Body extends React.Component {
     return (
       <div className={styles.body} tabIndex={0}>
         <h2>予約する</h2>
-        <p>{this.state.startTime}</p>
+        <p>{this.state.endTime}</p>
         <div style={{ display: "flex" }}>
           <form noValidate>
             <TextField
               label="日にち"
               type="datetime-local"
-              defaultValue={this.state.defaultValue}
+              defaultValue={this.state.startTime}
               style={{ width: "200px", marginRight: "10px" }}
               onChange={this.datepickerHandleChange}
             />
@@ -78,7 +97,11 @@ class Body extends React.Component {
             style={{ marginLeft: "10px" }}
             onChange={this.nameHandleChange}
           />
-          <Button variant="outlined" style={{ marginLeft: "10px" }}>
+          <Button
+            variant="outlined"
+            style={{ marginLeft: "10px" }}
+            onClick={this.clickDoAction}
+          >
             決定
           </Button>
         </div>
@@ -87,4 +110,19 @@ class Body extends React.Component {
   }
 }
 
-export default Body;
+const mapStateToProps = (state) => {
+  return {
+    state: state.schedule.classTime,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    appointmentAction: (appointment) =>
+      dispatch(appointmentAction(appointment)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Body);
+
+export { Body };
