@@ -22,7 +22,7 @@ const reducer = (state = initialState.schedule, action) => {
       console.log(state);
       return {
         ...state,
-        ...action.payload,
+        reserveList: state.reserveList.concat([action.payload]),
       };
     default:
       return state;

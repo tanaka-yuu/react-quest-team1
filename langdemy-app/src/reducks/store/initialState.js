@@ -4,10 +4,8 @@ const initialState = {
     uid: "",
     role: "",
     userName: "",
-    email: "",
-    password: "",
   },
-  schedule:{
+  schedule: {
     reserveList: [],
   },
   lessonReady: {
