@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects';
-import expressController from '../lessonReady/expressController';
+import controller from '../lessonReady/controller';
 
 export default function* routeSaga() {
    yield all([
-      expressController(),
+      controller(),
    ]);
 }

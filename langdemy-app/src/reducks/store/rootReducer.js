@@ -1,7 +1,7 @@
 import { usersReducer as users } from "../users/reducers"
-import express from '../lessonReady/expressReducer';
+import lessonReady from '../lessonReady/reducers';
 
 export default {
   users,
-  express,
+  lessonReady,
 }

@@ -79,6 +79,7 @@ class LessonReady extends React.Component {
           this.wrapperBox = x;
         }}
       >
+        
         <div style={css}></div>
         <Container
           component="main"

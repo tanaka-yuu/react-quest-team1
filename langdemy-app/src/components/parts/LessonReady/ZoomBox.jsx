@@ -11,6 +11,7 @@ class ZoomBox extends React.Component {
         }
       >
         zoomを開始
+        {this.props.lessonReady}
       </Button>
     );
   }
