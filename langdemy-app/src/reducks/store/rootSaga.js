@@ -1,8 +1,10 @@
 import { all } from 'redux-saga/effects';
-import controller from '../lessonReady/controller';
+import lessonReadyController from '../lessonReady/controller';
+import scheduleController from '../schedule/controller';
 
 export default function* routeSaga() {
    yield all([
-      controller(),
+      lessonReadyController(),
+      scheduleController(),
    ]);
 }
