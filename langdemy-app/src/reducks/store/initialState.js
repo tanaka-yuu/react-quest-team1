@@ -12,10 +12,10 @@ const initialState = {
     name: "",
     startTime: null,
     endTime: null,
-    lessonReady: {
-      isStartTime: false,
-      joinUrl: "",
-    },
+  },
+  lessonReady: {
+    isStartTime: false,
+    joinUrl: "",
   },
 };
 

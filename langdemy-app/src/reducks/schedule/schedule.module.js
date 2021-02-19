@@ -8,6 +8,14 @@ const appointmentAction = (appointment) => {
   };
 };
 
+export const STORE_SCHEDULE_REQUEST = "STORE_SCHEDULE_REQUEST";
+export function storeSchedule(appointment){
+  return {
+      type: STORE_SCHEDULE_REQUEST,
+      payload: appointment,
+  };
+}
+
 const reducer = (state = initialState.schedule, action) => {
   switch (action.type) {
     case SCHEDULE_APPOINTMENT:

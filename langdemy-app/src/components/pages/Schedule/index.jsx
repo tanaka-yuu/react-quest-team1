@@ -1,5 +1,5 @@
 import React from "react";
-import { Calender1 } from "../../parts/schedule/Calender1";
+import Calender1 from "../../parts/schedule/Calender1";
 
 class Schedule extends React.Component {
   render() {
