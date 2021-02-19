@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Drawer from '@material-ui/core/Drawer';
 import { Link } from "react-router-dom";
+import SignOutButton from './SignOutButton';
 
 const styles = {
   list: {
@@ -28,13 +29,13 @@ class Header extends Component {
   state = {
     left: false,
   };
-
+  
   toggleDrawer = (side, open) => () => {
     this.setState({
       [side]: open,
     });
   };
-
+  
   render () {
     const { classes } = this.props;
 
@@ -85,6 +86,8 @@ class Header extends Component {
             <strong>
               <Link to="/" style={{ boxShadow: 'none', textDecoration: 'none', color: 'inherit', fontFamily: 'Montserrat, sans-serif', }}>React Quest Team1 App</Link>
             </strong>
+            <div className={classes.root}/>
+            <SignOutButton></SignOutButton>
           </Toolbar>
         </AppBar>
       </div>
