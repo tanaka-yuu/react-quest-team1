@@ -4,18 +4,16 @@ const initialState = {
     uid: "",
     role: "",
     userName: "",
-    email: "",
-    password: "",
   },
   schedule: {
     classTime: null,
     name: "",
     startTime: null,
     endTime: null,
-    lessonReady: {
-      isStartTime: false,
-      joinUrl: "",
-    },
+  },
+  lessonReady: {
+    isStartTime: false,
+    joinUrl: "",
   },
 };
 

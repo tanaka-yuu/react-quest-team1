@@ -52,16 +52,6 @@ class Header extends Component {
               <ListItemText primary="Schedule" />
             </ListItem>
           </Link>
-          <Link to="/signup">
-            <ListItem button>
-              <ListItemText primary="Sign up" />
-            </ListItem>
-          </Link>
-          <Link to="/signin">
-            <ListItem button>
-              <ListItemText primary="Sign in" />
-            </ListItem>
-          </Link>
         </List>
       </div>
     );
