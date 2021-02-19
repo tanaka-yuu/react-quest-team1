@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import styles from "./styles.module.css";
 import Modal from "@material-ui/core/Modal";
 import Body from "./Body";
-import { appointmentAction } from "../../../reducks/schedule/schedule.module";
+import { appointmentAction, storeSchedule } from "../../../reducks/schedule/schedule.module";
 
 registerLocale("ja", ja);
 const localizer = momentLocalizer(moment);
@@ -107,6 +107,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     appointmentAction: (appointment) =>
       dispatch(appointmentAction(appointment)),
+    storeSchedule: (appointment) =>
+      dispatch(storeSchedule(appointment)),
   };
 };
 

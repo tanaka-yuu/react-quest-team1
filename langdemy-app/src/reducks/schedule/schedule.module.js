@@ -8,8 +8,8 @@ const appointmentAction = (appointment) => {
   };
 };
 
-export const STORE_SCHEDULE_REQUEST = "STORE_SCHEDULE_REQUEST";
-export function storeSchedule(appointment){
+const STORE_SCHEDULE_REQUEST = "STORE_SCHEDULE_REQUEST";
+const storeSchedule = (appointment) => {
   return {
       type: STORE_SCHEDULE_REQUEST,
       payload: appointment,
@@ -30,4 +30,4 @@ const reducer = (state = initialState.schedule, action) => {
 };
 
 export default reducer;
-export { appointmentAction };
+export { appointmentAction, storeSchedule };

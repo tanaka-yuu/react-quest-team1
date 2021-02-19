@@ -7,11 +7,8 @@ const initialState = {
     email: "",
     password: "",
   },
-  schedule: {
-    classTime: null,
-    name: "",
-    startTime: null,
-    endTime: null,
+  schedule:{
+    reserveList: [],
   },
   lessonReady: {
     isStartTime: false,
