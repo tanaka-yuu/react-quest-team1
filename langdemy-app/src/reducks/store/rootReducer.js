@@ -1,7 +1,9 @@
-import { usersReducer as users } from "../users/reducers"
-import express from '../lessonReady/expressReducer';
+import { usersReducer as users } from "../users/reducers";
+import lessonReady from '../lessonReady/reducers';
+import schedule from "../schedule/schedule.module";
 
 export default {
   users,
-  express,
-}
+  lessonReady,
+  schedule,
+};

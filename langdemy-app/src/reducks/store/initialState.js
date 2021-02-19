@@ -7,7 +7,16 @@ const initialState = {
     email: "",
     password: "",
   },
-  html: "",
+  schedule: {
+    classTime: null,
+    name: "",
+    startTime: null,
+    endTime: null,
+    lessonReady: {
+      isStartTime: false,
+      joinUrl: "",
+    },
+  },
 };
 
 export default initialState;
