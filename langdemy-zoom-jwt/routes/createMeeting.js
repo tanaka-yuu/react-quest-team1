@@ -15,8 +15,8 @@ var options = {
   body: {
         "topic":"",
         "type": 2,
-        "start_time": startTime,
-        "duration": duration,
+        "start_time": `${startTime}`,
+        "duration": `${duration}`,
         "timezone": "Asia/Tokyo",
         "password": "",
         "agenda": "",

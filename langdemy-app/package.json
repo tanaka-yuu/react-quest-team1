@@ -9,10 +9,15 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
+    "axios": "^0.21.1",
     "connected-react-router": "^6.8.0",
+    "fetch-jsonp": "^1.1.3",
     "firebase": "^8.2.6",
     "history": "^4.10.1",
+    "qs": "^6.9.6",
     "react": "^17.0.1",
+    "react-big-calendar": "^0.32.0",
+    "react-datepicker": "^3.4.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
@@ -24,7 +29,6 @@
     "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "axios": "^0.21.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
