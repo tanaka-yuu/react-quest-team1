@@ -15,14 +15,14 @@ class Body extends React.Component {
     super(props);
     this.state = {
       classTime: 40,
-      name: "",
+      title: "",
       startTime: moment().format("YYYY-MM-DDTHH:mm"),
       endTime: null,
     };
 
     this.classTimeHandleChange = this.classTimeHandleChange.bind(this);
     this.datepickerHandleChange = this.datepickerHandleChange.bind(this);
-    this.nameHandleChange = this.nameHandleChange.bind(this);
+    this.titleHandleChange = this.titleHandleChange.bind(this);
     this.clickDoAction = this.clickDoAction.bind(this);
   }
 
@@ -33,34 +33,31 @@ class Body extends React.Component {
     console.log(e.target.value);
   }
 
-  nameHandleChange(e) {
+  titleHandleChange(e) {
     this.setState(() => ({
-      name: e.target.value,
+      title: e.target.value,
+      endTime: moment(this.state.startTime)
+        .add(this.state.classTime, "m")
+        .format("YYYY-MM-DD-HH:mm"),
     }));
-    console.log(this.state.name);
-    this.props.appointmentAction();
   }
 
   datepickerHandleChange(e) {
     this.setState(() => ({
-      startTime: e.target.value,
+      startTime: e.target.value.toDate(),
     }));
   }
 
   clickDoAction() {
     const { appointmentAction } = this.props;
     const appointment = this.state;
-    this.setState(() => ({
-      endTime: moment(this.state.startTime)
-        .add(this.state.classTime, "m")
-        .format("YYYY-MM-DD-HH:mm"),
-    }));
+    // this.setState(() => ({
+    //   endTime: moment(this.state.startTime)
+    //     .add(this.state.classTime, "m")
+    //     .format("YYYY-MM-DD-HH:mm"),
+    // }));
+    console.log(this.state);
     appointmentAction(appointment);
-    console.log(this.props.state);
-  }
-
-  componentWillMount() {
-    this.props.appointmentAction();
   }
 
   render() {
@@ -95,7 +92,7 @@ class Body extends React.Component {
           <TextField
             label="名前"
             style={{ marginLeft: "10px" }}
-            onChange={this.nameHandleChange}
+            onChange={this.titleHandleChange}
           />
           <Button
             variant="outlined"
@@ -112,7 +109,7 @@ class Body extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.schedule.classTime,
+    state: state.schedule.endTime,
   };
 };
 

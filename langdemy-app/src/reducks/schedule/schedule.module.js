@@ -13,8 +13,8 @@ const reducer = (state = initialState.schedule, action) => {
     case SCHEDULE_APPOINTMENT:
       console.log(state);
       return {
-        ...state,
-        ...action.payload,
+        state,
+        reserveList: state.reserveList.concat([action.payload]),
       };
     default:
       return state;

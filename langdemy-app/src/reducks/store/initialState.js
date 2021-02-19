@@ -12,10 +12,7 @@ const initialState = {
     joinUrl: "",
   },
   schedule: {
-    classTime: null,
-    name: "",
-    startTime: null,
-    endTime: null,
+    reserveList: [],
   },
 };
 

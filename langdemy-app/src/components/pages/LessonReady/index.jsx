@@ -87,7 +87,6 @@ class LessonReady extends React.Component {
             this.state.count === 0 ? styles.mainBox : styles.mainBoxUnder600
           }
         >
-          
           <div
             className={
               this.state.user === true
@@ -98,7 +97,11 @@ class LessonReady extends React.Component {
             <Grid container spacing={0}>
               <Grid item xs={12} container justify="center">
                 <Grid item container justify={justify1} xs={12} sm={6}>
-                  <ZoomBox count={this.state.count} isStartTime={this.props.isStartTime} joinUrl = {this.props.joinUrl}/>
+                  <ZoomBox
+                    count={this.state.count}
+                    isStartTime={this.props.isStartTime}
+                    joinUrl={this.props.joinUrl}
+                  />
                 </Grid>
                 <Grid item container justify={justify2} xs={12} sm={6}>
                   <ScheduleBox count={this.state.count} />
