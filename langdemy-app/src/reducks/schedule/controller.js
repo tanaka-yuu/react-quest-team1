@@ -2,14 +2,12 @@ import { db } from "../../firebase/index";
 import firebase from "firebase/app"
 import axios from 'axios';
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
-import initialState from '../store/initialState'
 
 function* callData(appointment){
 
   console.log('---------------');
 
     const user = yield firebase.auth().currentUser;
-    const state = initialState.schedule;
 
     return axios({
       methiod: 'get',
