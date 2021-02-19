@@ -23,7 +23,7 @@ function callData(){
           querySnapshot.forEach(function(doc) {
             const data = doc.data();
             console.log(data);
-            state.startTime = data.startTime;
+            state.isStartTime = data.startTime;
             state.joinUrl = data.joinUrl;
           }); 
       });

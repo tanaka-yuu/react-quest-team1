@@ -8,7 +8,7 @@ const initialState = {
     password: "",
   },
   lessonReady: {
-    startTime: "",
+    isStartTime: "",
     joinUrl: "",
   },
 };
