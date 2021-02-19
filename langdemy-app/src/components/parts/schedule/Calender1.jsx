@@ -111,5 +111,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calender1);
-
-export { Calender1 };
