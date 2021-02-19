@@ -1,6 +1,39 @@
 import { auth, db, FirebaseTimestamp } from "../../firebase/index";
-import { signInAction, signUpAction } from "./actions";
+import { signInAction, signOutAction, signUpAction } from "./actions";
 import { push } from "connected-react-router";
+
+export const listenAuthState = () => {
+  return async (dispatch) => {
+    return auth.onAuthStateChanged((user) => {
+      if (user) {
+        const uid = user.uid;
+        console.log("uid: ", uid);
+
+        db.collection("users")
+          .doc(uid)
+          .get()
+          .then((snapshot) => {
+            const data = snapshot.data();
+
+            console.log("data: ", data);
+
+            dispatch(
+              signInAction({
+                isSignedIn: true,
+                role: data.role,
+                uid: uid,
+                userName: data.userName,
+              })
+            );
+
+            dispatch(push("/"));
+          });
+      } else {
+        dispatch(push("/signin"));
+      }
+    });
+  };
+};
 
 export const signInFunc = (email, password) => {
   return async (dispatch) => {
@@ -29,7 +62,7 @@ export const signInFunc = (email, password) => {
         db.collection("users")
           .doc(uid)
           .get()
-          .then(snapshot => {
+          .then((snapshot) => {
             const data = snapshot.data();
 
             console.log("data: ", data);
@@ -51,7 +84,6 @@ export const signInFunc = (email, password) => {
     });
   };
 };
-
 
 export const signUpFunc = (userName, email, password) => {
   return async (dispatch) => {
@@ -98,17 +130,30 @@ export const signUpFunc = (userName, email, password) => {
             .doc(uid)
             .set(userInitialData)
             .then(() => {
-              dispatch(signUpAction({
-                userName: userName,
-                email: email,
-                password: password,
-                uid: uid,
-                role: "customer",
-                isSignedIn: true,
-              }));
+              dispatch(
+                signUpAction({
+                  userName: userName,
+                  email: email,
+                  password: password,
+                  uid: uid,
+                  role: "customer",
+                  isSignedIn: true,
+                })
+              );
               dispatch(push("/"));
             });
         }
       });
   };
 };
+
+
+export const signOut = () => {
+  return async (dispatch) => {
+    auth.signOut()
+        .then(() => {
+          dispatch(signOutAction());
+          dispatch(push("/signin"));
+        })
+  }
+}
