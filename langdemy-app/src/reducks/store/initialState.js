@@ -7,15 +7,15 @@ const initialState = {
     email: "",
     password: "",
   },
+  lessonReady: {
+    isStartTime: false,
+    joinUrl: "",
+  },
   schedule: {
     classTime: null,
     name: "",
     startTime: null,
     endTime: null,
-    lessonReady: {
-      isStartTime: false,
-      joinUrl: "",
-    },
   },
 };
 
