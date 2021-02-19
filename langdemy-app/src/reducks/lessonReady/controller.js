@@ -3,31 +3,35 @@ import firebase from "firebase/app"
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
 import initialState from '../store/initialState'
 
-function callData(){
+function* callData(){
 
   console.log('---------------');
 
-    const user = firebase.auth().currentUser;
-
+    const user = yield firebase.auth().currentUser;
     const state = initialState.lessonReady;
+    const nowDate = new Date();
 
     if (user) {
 
       const uid = user.uid;
       console.log(uid);
 
-      db.collection("lessonData")
+      yield db.collection("lessonData")
         .where("uid", "==", user.uid)
         .get()
         .then(function(querySnapshot) {
           querySnapshot.forEach(function(doc) {
             const data = doc.data();
             console.log(data);
-            state.startTime = data.startTime;
-            state.joinUrl = data.joinUrl;
+            console.log(data.startTime.toDate());
+            console.log(nowDate);
+            console.log(data.finishTime.toDate());
+            if(nowDate < data.finishTime.toDate() && nowDate > data.startTime.toDate()){
+              state.isStartTime = true;
+              state.joinUrl = data.joinUrl;
+            }
           }); 
       });
-      console.log(state)
       return state;
     } 
     return state;
