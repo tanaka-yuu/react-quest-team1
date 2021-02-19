@@ -7,7 +7,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import moment from "moment";
-import { appointmentAction } from "../../../reducks/schedule/schedule.module";
+import { appointmentAction, storeSchedule } from "../../../reducks/schedule/schedule.module";
 import { connect } from "react-redux";
 
 class Body extends React.Component {
@@ -48,7 +48,7 @@ class Body extends React.Component {
   }
 
   clickDoAction() {
-    const { appointmentAction } = this.props;
+    const { appointmentAction, storeSchedule } = this.props;
     const appointment = this.state;
     this.setState(() => ({
       endTime: moment(this.state.startTime)
@@ -56,6 +56,7 @@ class Body extends React.Component {
         .format("YYYY-MM-DD-HH:mm"),
     }));
     appointmentAction(appointment);
+    storeSchedule(appointment);
     console.log(this.props.state);
   }
 
@@ -120,6 +121,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     appointmentAction: (appointment) =>
       dispatch(appointmentAction(appointment)),
+    storeSchedule: (appointment) =>
+      dispatch(storeSchedule(appointment)),
   };
 };
 

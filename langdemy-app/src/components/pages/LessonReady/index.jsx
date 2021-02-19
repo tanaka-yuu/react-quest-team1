@@ -43,6 +43,7 @@ class LessonReady extends React.Component {
   }
 
   componentWillMount() {
+    //ページアクセス時にDBからZoomのURLと開始時間の取得
     this.props.get();
   }
 
