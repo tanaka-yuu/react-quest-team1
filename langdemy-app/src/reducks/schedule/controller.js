@@ -3,6 +3,7 @@ import firebase from "firebase/app"
 import axios from 'axios';
 import { takeEvery, fork, call, put } from 'redux-saga/effects';
 
+
 function* callData(appointment){
 
   console.log('---------------');
@@ -39,16 +40,11 @@ function* callData(appointment){
           return appointment
         });
     } 
-    return state;
-    })
+  })
 }
 
 function* getData(appointment) {
-  const response = yield call(callData, appointment);
-  yield put ({
-      type: 'STORE_SCHEDULE_SUCCESS',
-      payload: response,
-  })
+  yield call(callData, appointment);
 }
 
 function* getUrl (action) {
