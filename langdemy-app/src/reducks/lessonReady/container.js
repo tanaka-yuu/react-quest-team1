@@ -4,7 +4,9 @@ import { getZoomRequest } from './actions'
 
 function mapStateToProps(state) {
     return{
+        //レッスン時刻かどうか
         isStartTime: state.lessonReady.isStartTime,
+        //ZoomURL
         joinUrl: state.lessonReady.joinUrl,
     };
 }
