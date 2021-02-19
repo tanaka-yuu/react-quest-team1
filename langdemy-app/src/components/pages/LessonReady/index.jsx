@@ -44,7 +44,7 @@ class LessonReady extends React.Component {
 
   componentWillMount() {
     this.props.get();
-}
+  }
 
   render() {
     const css = {
@@ -79,7 +79,6 @@ class LessonReady extends React.Component {
           this.wrapperBox = x;
         }}
       >
-        
         <div style={css}></div>
         <Container
           component="main"
@@ -88,6 +87,7 @@ class LessonReady extends React.Component {
             this.state.count === 0 ? styles.mainBox : styles.mainBoxUnder600
           }
         >
+          
           <div
             className={
               this.state.user === true
