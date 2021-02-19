@@ -4,7 +4,8 @@ import { getZoomRequest } from './actions'
 
 function mapStateToProps(state) {
     return{
-        lessonReady: state.lessonReady
+        isStartTime: state.lessonReady.isStartTime,
+        joinUrl: state.lessonReady.joinUrl,
     };
 }
 

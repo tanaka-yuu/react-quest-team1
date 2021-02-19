@@ -8,6 +8,10 @@
   font-size: 24px !important;
 }
 
+.zoomUrl {
+  text-decoration: none;
+}
+
 .zoomBoxUnder600 {
   margin-bottom: 20px !important;
   width: 70%;
