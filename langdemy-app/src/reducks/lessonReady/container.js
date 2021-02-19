@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import LessonReady from '../../components/pages/LessonReady/index';
-import { getExpress } from './expressAction'
+import { getZoomRequest } from './actions'
 
 function mapStateToProps(state) {
     return{
-        html: state.express.html
+        lessonReady: state.lessonReady
     };
 }
 
 function mapDispatchToProps(dispatch){
     return {
-        get: () => dispatch(getExpress()),
+        get: () => dispatch(getZoomRequest()),
     };
 }
 
