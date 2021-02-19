@@ -6,10 +6,7 @@ const initialState = {
     userName: "",
   },
   schedule: {
-    classTime: null,
-    name: "",
-    startTime: null,
-    endTime: null,
+    reserveList: [],
   },
   lessonReady: {
     isStartTime: false,
