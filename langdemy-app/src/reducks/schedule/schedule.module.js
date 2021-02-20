@@ -8,13 +8,6 @@ const appointmentAction = (appointment) => {
   };
 };
 
-const GET_SCHEDULE_APPOINTMENT = "GET_SCHEDULE_APPOINTMENT";
-const getSchedule = () => {
-  return {
-    type: GET_SCHEDULE_APPOINTMENT,
-  };
-};
-
 const STORE_SCHEDULE_REQUEST = "STORE_SCHEDULE_REQUEST";
 const storeSchedule = (appointment) => {
   return {
@@ -22,6 +15,13 @@ const storeSchedule = (appointment) => {
       payload: appointment,
   };
 }
+
+const GET_SCHEDULE_APPOINTMENT = "GET_SCHEDULE_APPOINTMENT";
+const getSchedule = () => {
+  return {
+    type: GET_SCHEDULE_APPOINTMENT,
+  };
+};
 
 const schedule = {
   name: "",

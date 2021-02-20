@@ -12,10 +12,6 @@ const initialState = {
   schedule: {
     reserveList: [],
   },
-  lessonReady: {
-    isStartTime: false,
-    joinUrl: "",
-  },
 };
 
 export default initialState;

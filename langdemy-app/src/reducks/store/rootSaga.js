@@ -7,6 +7,6 @@ export default function* routeSaga() {
    yield all([
       lessonReadyController(),
       scheduleController(),
-      //getScheduleController(),
+      getScheduleController(),
    ]);
 }

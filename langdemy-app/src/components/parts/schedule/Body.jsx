@@ -52,8 +52,7 @@ class Body extends React.Component {
     const { appointmentAction, storeSchedule } = this.props;
     const appointment = this.state;
     console.log(this.state);
-    console.log('fghfgf')
-    appointmentAction(appointment);
+    
     storeSchedule(appointment);
   }
 
