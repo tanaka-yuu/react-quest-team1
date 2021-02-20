@@ -23,8 +23,8 @@ function* callData(){
       .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
         const data = doc.data();
-        const startTime = data.startTime.toDate();
-        const finishTime = data.finishTime.toDate();
+        const startTime = data.startTime.utc.format();
+        const finishTime = data.finishTime.utc.format();
         console.log(data);
 
         //開始時間の10分前

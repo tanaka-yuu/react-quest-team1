@@ -1,7 +1,7 @@
 import { db } from "../../firebase/index";
 import firebase from "firebase/app"
 import axios from 'axios';
-import { takeEvery, fork, call, put } from 'redux-saga/effects';
+import { takeEvery, fork, call } from 'redux-saga/effects';
 
 function* callData(appointment){
   console.log('---------------');
@@ -32,9 +32,10 @@ function* callData(appointment){
       teacherId: '1',
       joinUrl: joinUrl.data,
     }
-
     console.log(lessonData);
+    
     if (user) {
+      //DBにデータ保存
       db.collection("lessonData")
         .doc(lessonId)
         .set(lessonData)
@@ -51,6 +52,7 @@ function* getData(appointment) {
 
 function* getUrl (action) {
   console.log('--------in yield');
+  console.log(action.payload)
   yield fork(getData, action.payload);
 }
 

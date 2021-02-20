@@ -5,6 +5,10 @@ const initialState = {
     role: "",
     userName: "",
   },
+  lessonReady: {
+    isStartTime: false,
+    joinUrl: "",
+  },
   schedule: {
     reserveList: [],
   },
