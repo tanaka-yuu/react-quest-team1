@@ -40,7 +40,7 @@ const reducer = (state = initialState.schedule, action) => {
     case 'ACCEPT_SCHEDULE_APPOINTMENT':
       return {
         ...state,
-        reserveList: state.reserveList.concat(action.payload),
+        reserveList: action.payload,
       };
     default:
       return state;
