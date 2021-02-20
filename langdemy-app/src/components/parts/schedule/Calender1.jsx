@@ -10,15 +10,9 @@ import styles from "./styles.module.css";
 import Modal from "@material-ui/core/Modal";
 import Body from "./Body";
 import { appointmentAction } from "../../../reducks/schedule/schedule.module";
-import { accessor } from "react-big-calendar/lib/utils/accessors";
 
 registerLocale("ja", ja);
 const localizer = momentLocalizer(moment);
-// const localizer = BigCalendar.momentLocalizer(moment);
-// export const convertDateTimeToDate = (datetime, timeZoneName) => {
-//   const m = moment.tz(datetime, timeZoneName);
-//   return new Date(m.year(), m.month(), m.date(), m.hour(), m.minute(), 0);
-// };
 
 class Calender1 extends React.Component {
   constructor(props) {
@@ -28,7 +22,7 @@ class Calender1 extends React.Component {
     this.test = this.test.bind(this);
     this.state = {
       isOpen: false,
-      // events: this.props.state,
+      events: this.props.state,
     };
   }
 
@@ -47,18 +41,23 @@ class Calender1 extends React.Component {
   test() {
     const { appointmentAction } = this.props;
     appointmentAction();
-    console.log(this.props.state[0].name);
+    console.log(moment("2021-02-20T07:07").utc().format());
+    console.log(moment("2021-02-22T07:07").utc().format());
+    console.log(this.props.state);
   }
 
-  // startAccessor = (event) => {
-  //   return convertDateTimeToDate(accessor(event, "start"), this.props.timeZone);
-  // };
-
-  // endAccessor = (event) => {
-  //   return convertDateTimeToDate(accessor(event, "end"), this.props.timeZone);
-  // };
-
   render() {
+    console.log("bbbbbbbbbbbbbbbbbb");
+    console.log(this.props.state);
+    const eventlist = this.props.state
+      .filter((event) => event)
+      .map((event) => ({
+        ...event,
+        start: new Date(event.startTime),
+        end: moment(event.endTime).utc().format(),
+      }));
+    console.log(eventlist);
+    // console.log(eventlist[0].end);
     return (
       <div>
         <div className={styles.wrapperBox}>
@@ -91,11 +90,9 @@ class Calender1 extends React.Component {
         </div>
         <Calendar
           localizer={localizer}
-          // defaultDate={new Date()}
-          startAccessor={this.startAccessor} // startAccessorはタイムゾーンを動的に変化させるため、関数をセット
-          endAccessor={this.endAccessor} // endAccessorはタイムゾーンを動的に変化させるため、関数をセット
+          defaultDate={new Date()}
           defaultView="month"
-          events={this.state.events}
+          events={eventlist}
           style={{ height: "90vh" }}
         />
       </div>
@@ -105,10 +102,6 @@ class Calender1 extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    // classTime: state.schedule.classTime,
-    // name: state.schedule.name,
-    // startTime: state.schedule.startTime,
-    // endTime: state.schedule.endTime,
     state: state.schedule.reserveList,
   };
 };

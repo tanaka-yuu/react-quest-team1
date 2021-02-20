@@ -44,18 +44,13 @@ class Body extends React.Component {
 
   datepickerHandleChange(e) {
     this.setState(() => ({
-      startTime: e.target.value.toDate(),
+      startTime: e.target.value,
     }));
   }
 
   clickDoAction() {
     const { appointmentAction } = this.props;
     const appointment = this.state;
-    // this.setState(() => ({
-    //   endTime: moment(this.state.startTime)
-    //     .add(this.state.classTime, "m")
-    //     .format("YYYY-MM-DD-HH:mm"),
-    // }));
     console.log(this.state);
     appointmentAction(appointment);
   }
