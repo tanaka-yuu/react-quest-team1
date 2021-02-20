@@ -49,11 +49,11 @@ class Body extends React.Component {
   }
 
   clickDoAction() {
-    const { appointmentAction, storeSchedule } = this.props;
+    const { storeSchedule } = this.props;
     const appointment = this.state;
     console.log(this.state);
-    
     storeSchedule(appointment);
+    return this.props.handleClose();
   }
 
   componentWillMount() {

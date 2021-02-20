@@ -85,7 +85,11 @@ class Calender1 extends React.Component {
             aria-labelledby="simple-modal-title"
             aria-describedby="simple-modal-description"
           >
-            <Body />
+            <Body
+              handleClose={() => {
+                this.handleClose();
+              }}
+            />
           </Modal>
         </div>
         <Calendar
