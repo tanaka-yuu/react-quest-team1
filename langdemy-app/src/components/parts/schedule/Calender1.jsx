@@ -9,32 +9,30 @@ import Button from "@material-ui/core/Button";
 import styles from "./styles.module.css";
 import Modal from "@material-ui/core/Modal";
 import Body from "./Body";
-import { appointmentAction, storeSchedule } from "../../../reducks/schedule/schedule.module";
+import { appointmentAction, storeSchedule, getSchedule } from "../../../reducks/schedule/schedule.module";
 
 registerLocale("ja", ja);
 const localizer = momentLocalizer(moment);
+// const localizer = BigCalendar.momentLocalizer(moment);
+// export const convertDateTimeToDate = (datetime, timeZoneName) => {
+//   const m = moment.tz(datetime, timeZoneName);
+//   return new Date(m.year(), m.month(), m.date(), m.hour(), m.minute(), 0);
+// };
 
 class Calender1 extends React.Component {
   constructor(props) {
     super(props);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.test = this.test.bind(this);
     this.state = {
       isOpen: false,
-      events: [
-        {
-          start: moment().toDate(),
-          end: moment().add(1, "days").toDate(),
-          title: "Some title",
-        },
-        {
-          start: moment().toDate(),
-          end: moment().add(1, "days").toDate(),
-          title: "Some title",
-        },
-      ],
+      events: this.props.state,
     };
+    
+  }
+
+  componentWillMount() {
+    this.props.getSchedule();
   }
 
   handleOpen() {
@@ -49,13 +47,17 @@ class Calender1 extends React.Component {
     });
   }
 
-  test() {
-    const { appointmentAction } = this.props;
-    appointmentAction();
-    console.log(this.props);
-  }
-
   render() {
+    console.log(this.props.state);
+    const eventlist = this.props.state
+      .filter((event) => event)
+      .map((event) => ({
+        ...event,
+        name: event.name,
+        start: new Date(moment(event.startTime)),
+        end: new Date(moment(event.endTime)),
+      }));
+    console.log(eventlist);
     return (
       <div>
         <div className={styles.wrapperBox}>
@@ -76,6 +78,7 @@ class Calender1 extends React.Component {
           <Button variant="outlined" className={styles.button}>
             キャンセル
           </Button>
+          <p></p>
           <Modal
             open={this.state.isOpen}
             onClose={this.handleClose}
@@ -88,8 +91,10 @@ class Calender1 extends React.Component {
         <Calendar
           localizer={localizer}
           defaultDate={new Date()}
+          // startAccessor={this.startAccessor}
+          // endAccessor={this.endAccessor}
           defaultView="month"
-          events={this.state.events}
+          events={eventlist}
           style={{ height: "90vh" }}
         />
       </div>
@@ -97,9 +102,10 @@ class Calender1 extends React.Component {
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
-    state: state,
+    state: state.schedule.reserveList,
   };
 };
 
@@ -109,8 +115,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(appointmentAction(appointment)),
     storeSchedule: (appointment) =>
       dispatch(storeSchedule(appointment)),
+    getSchedule: () =>
+      dispatch(getSchedule()),
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calender1);
-
